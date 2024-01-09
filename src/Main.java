@@ -1,12 +1,10 @@
-import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    static List<Character> alphabet = Arrays.asList('M', 'C', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h','i','j','k','l','m','n', 'o','p','q','r','s','t','u','v','w','x','y','z');
+    static List<Character> alphabet = Arrays.asList('M', 'C', 'I', ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h','i','j','k','l','m','n', 'o','p','q','r','s','t','u','v','w','x','y','z');
     //static int key = 4;
 
     public static void main(String[] args) {
@@ -22,7 +20,7 @@ public class Main {
         switch (i) {
             case 1 -> Encryption.encrypt(alphabet);
             case 2 -> Decryption.decrypt(alphabet);
-            //case 3 -> Decryption.decrypt("Декодируем перебором");
+            case 3 -> BruteForce.test(alphabet);
             default -> System.out.println("Нет такого режима");
         }
     }

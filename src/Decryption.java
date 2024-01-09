@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Decryption {
-    static List abc;
+    static List<Character> abc;
 
-    Decryption(List alphabet){ // Конструктор
+    Decryption(List<Character> alphabet){ // Конструктор
         this.abc = alphabet;
 
     }
@@ -28,7 +28,7 @@ public class Decryption {
     }
 
 
-    static void decrypt(List abc) {
+    static void decrypt(List<Character> abc) {
         Scanner cons = new Scanner(System.in);
         System.out.println("Введете ключ расшифрования: ");
         int key = cons.nextInt()*(-1);
@@ -68,9 +68,5 @@ public class Decryption {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
-
-
     }
 }
