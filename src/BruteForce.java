@@ -6,43 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BruteForce {
-    static List<Character> abc;
-
-    BruteForce(List<Character> alphabet){ // Конструктор
-        this.abc = alphabet;
-
-
-
-    }
-
-    static void symbolPosition(int index, List temp, List abc){
-
-        if(index<0){
-            int s = abc.size() + index;
-            temp.add(String.valueOf(abc.get(s)));
-        }
-        else {
-            temp.add(String.valueOf(abc.get(index)));
-        }
-    }
-
+public class BruteForce extends NotaeCaesarianae{
+    public static String strIn;
 
     // проход по алфавиту с увеличением шага ключа декодирования
-    static void test(List<Character> abc){
+    static void bruteForce(List<Character> abc){
+        Scanner cons = new Scanner(System.in);
+        System.out.println("Введите путь к исходному файлу: ");
+        strIn = cons.nextLine(); //   ".\src\InputTextDecrypt.txt";
+
         for(int i=1; i<=28; i++){
             int key = i;
-            String strOut = ".\\src\\FlowIO\\OutputTextDecryptBruteForce"+i+".txt";
-            bruteForce(key, abc, strOut);
+            String strOut = ".\\src\\Temp\\OutputTextDecryptBruteForce"+i+".txt";
+            bruteForceProcess(key, abc, strOut);
         }
 
     }
 
-    static void bruteForce(int key, List abc, String strOut) {
+    static void bruteForceProcess(int key, List abc, String strOut) {
 
         List<String> temp = new ArrayList<>();
         String joined = null;
-        String strIn = ".\\src\\InputTextDecrypt.txt";
 
         try(FileReader in = new FileReader(strIn);
             BufferedReader reader = new BufferedReader(in))

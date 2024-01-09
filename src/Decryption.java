@@ -8,34 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Decryption {
-    static List<Character> abc;
-
-    Decryption(List<Character> alphabet){ // Конструктор
-        this.abc = alphabet;
-
-    }
-
-    static void symbolPosition(int index, List temp, List abc){
-
-        if(index<0){
-            int s = abc.size() + index;
-            temp.add(String.valueOf(abc.get(s)));
-        }
-        else {
-            temp.add(String.valueOf(abc.get(index)));
-        }
-    }
-
+public class Decryption extends NotaeCaesarianae{
+    public static String message = "Введете ключ расшифрования: ";
 
     static void decrypt(List<Character> abc) {
         Scanner cons = new Scanner(System.in);
-        System.out.println("Введете ключ расшифрования: ");
+        System.out.println("Введите путь к исходному файлу: ");
+        String strIn = cons.nextLine(); //   ".\src\InputTextDecrypt.txt";
+        System.out.println(message);
         int key = cons.nextInt()*(-1);
 
         List<String> temp = new ArrayList<>();
         String joined = null;
-        String strIn = ".\\src\\InputTextDecrypt.txt";
         String strOut = ".\\src\\OutputTextDecrypt.txt";
 
         try(FileReader in = new FileReader(strIn);
